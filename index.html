@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerar QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <style></style>
+  </head>
+  <body>
+    <h1>Gerador de QR Code</h1>
+
+    <div class="config">
+      <label>URL</label>
+      <input
+        type="text"
+        id="url-input"
+        value="wkcdev.dev"
+        placeholder="https://..."
+      />
+      <label>Logo (opcional)</label>
+      <input type="file" id="logo-input" accept="image/*" />
+      <label>Título abaixo do QR (deixe vazio para ocultar)</label>
+      <input
+        type="text"
+        id="label-titulo"
+        placeholder="Ex: Wilson Klein Cecchi"
+      />
+      <div class="toggle-row">
+        <label>Mostrar URL como subtítulo</label>
+        <label class="toggle">
+          <input type="checkbox" id="toggle-subtitulo" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <button class="btn-gerar" onclick="gerarQR()">↻ Gerar QR Code</button>
+    </div>
+
+    <div class="card">
+      <div id="qr-wrap">
+        <div id="qrcode"></div>
+        <img id="logo-overlay" src="" alt="" style="display: none" />
+      </div>
+      <div class="label" id="display-titulo" style="display: none"></div>
+      <div class="url-text" id="display-subtitulo" style="display: none"></div>
+      <button class="btn-download" onclick="baixar()">
+        ⬇ Baixar QR Code (PNG)
+      </button>
+    </div>
+
+    <p class="info">
+      QR code gerado em alta resolução (500×500px), pronto para impressão.
+    </p>
+
+    <script src="assets/main.js"></script>
+  </body>
+</html>
